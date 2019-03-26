@@ -1,0 +1,25 @@
+<view class=''>
+<swiper class='movie-swiper' indicator-dots='{{true}}'
+ previous-margin='20rpx' next-margin='20rpx'
+ current='{{currentIndex}}'
+>
+  
+  <swiper-item class='movie' wx:for= "{{weeklyMovieList}}">
+   
+   <view class='contain movie-card'
+   bindtap='f2' data-user-name="blabla" data-movie-id="{{item.id}}">
+   <image class='movie-image'
+   src='{{item.imagePath}}'></image>
+   <text>{{item.id}}</text>
+   <text>第{{index+1}}周:  {{item.name}}</text>
+   <text>点评：最精彩的剧本，最真实的黑帮电影。</text>
+   <text>{{item.comment}}</text>
+   <text hidden="{{!item.isHighlyRecommended}}" style="font-size: 16px;color: red;">强烈推荐</text>
+   <text catchtap='f1' wx:if='{{index<(weeklyMovieList.length - 1)}}'
+   class='return-botton'>返回本周</text>
+   </view>
+   
+   </swiper-item>
+   
+   </swiper>
+</view>
